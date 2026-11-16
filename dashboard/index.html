@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="brand">
+    <span class="blip" aria-hidden="true"></span>
+    <div>
+      <h1>Token Radar</h1>
+      <p class="tagline">Protocols whose token does not exist yet — ranked by what it would be worth if their record stayed as it is.</p>
+    </div>
+  </div>
+  <div class="stats" id="stats"></div>
+  <p class="model-note" id="model-note"></p>
+</header>
+
+<nav class="toolbar" aria-label="Board controls">
+  <div class="tabs" role="tablist">
+    <button id="tab-board" class="tab active" type="button">Pre-token board</button>
+    <button id="tab-live" class="tab" type="button">Already live</button>
+    <button id="tab-aside" class="tab" type="button">Set aside</button>
+  </div>
+  <label>Search <input id="q" type="search" placeholder="name or slug"></label>
+  <label>Category <select id="f-category"></select></label>
+  <label>Chain <select id="f-chain"></select></label>
+  <label>Min TVL <select id="f-tvl">
+    <option value="0">any</option>
+    <option value="50000000">$50M+</option>
+    <option value="250000000">$250M+</option>
+    <option value="1000000000">$1B+</option>
+  </select></label>
+  <label>Sort <select id="f-sort">
+    <option value="rank">implied value</option>
+    <option value="tvl">TVL</option>
+    <option value="growth">7d growth</option>
+    <option value="age">age (oldest first)</option>
+  </select></label>
+  <label class="check"><input id="f-watch" type="checkbox"> watchlist only</label>
+</nav>
+
+<main id="board" tabindex="-1"></main>
+<section id="detail" hidden></section>
+
+<footer>
+  <p>Snapshot from DefiLlama via make.fun, as of <span id="as-of"></span>. “Records no token” is what the snapshot says — a protocol may still have a token its record does not carry. Implied values are this board’s own claim, never a prediction that a token will be issued.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
